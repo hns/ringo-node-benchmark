@@ -21,7 +21,7 @@ log(){
 
 function line() {
   cat <<-EOF
-set terminal svg enhanced size 600 380 fname "Helvetica" fsize 11
+set terminal svg enhanced size 600 380 fname "Sans" fsize 11
 set output "results/graphs/$1.svg"
 set title "$2 ($ABFLAGS)"
 set size 0.97,0.97
