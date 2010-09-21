@@ -72,7 +72,7 @@ gnuplot results/$1.p
 # Make ./results/graphs
 mkdir -p results/graphs
 
-graph hello-world
+graph no-alloc
 graph buffer-alloc
 graph string-alloc
 

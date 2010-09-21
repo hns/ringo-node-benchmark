@@ -58,7 +58,7 @@ echo "$ABFLAGS" > results/flags
 # Run benchmarks
 log $AB $ABFLAGS $ADDR
 export RINGO_MODULE_PATH=`pwd`
-bm hello-world
+bm no-alloc
 bm buffer-alloc
 bm string-alloc
 
