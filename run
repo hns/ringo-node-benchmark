@@ -2,7 +2,7 @@
 
 # based on http://github.com/senchalabs/connect/tree/master/benchmarks/
 
-ABFLAGS=${ABFLAGS-"-n 100000 -c 100 -k"}
+ABFLAGS=${ABFLAGS-"-n 50000 -c 50"}
 ADDR=${ADDR-http://0.0.0.0:8001/}
 AB=${AB-ab}
 
@@ -34,7 +34,6 @@ bm(){
        $platform $flags $dir/$platform.js &
        local pid=$!
        sleep 2
-       echo "PID: $pid"
        local dirname=results/$dir
        mkdir -p $dirname
        # jvm needs warmup time to reach final speed. If you run smaller
@@ -58,6 +57,7 @@ echo "$ABFLAGS" > results/flags
 
 # Run benchmarks
 log $AB $ABFLAGS $ADDR
+export RINGO_MODULE_PATH=`pwd`
 bm hello-world
 bm buffer-alloc
 bm string-alloc
