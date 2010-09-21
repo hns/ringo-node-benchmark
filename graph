@@ -27,7 +27,7 @@ set title "$2 ($ABFLAGS)"
 set size 0.97,0.97
 set grid y
 set key left top
-set xlabel "request"
+set xlabel "requests"
 set ylabel "response time (ms)"
 plot "$3" using $COL smooth sbezier with lines title "node", \\
      "$4" using $COL smooth sbezier with lines title "ringo"
