@@ -21,16 +21,16 @@ log(){
 
 function line() {
   cat <<-EOF
-set terminal svg
+set terminal svg enhanced size 600 380 fname "Helvetica" fsize 11
 set output "results/graphs/$1.svg"
-set title "$1 $ABFLAGS"
-set size 0.95,0.75
+set title "$2 ($ABFLAGS)"
+set size 0.97,0.97
 set grid y
 set key left top
 set xlabel "request"
 set ylabel "response time (ms)"
-plot "$2" using $COL smooth sbezier with lines title "node", \\
-     "$3" using $COL smooth sbezier with lines title "ringo"
+plot "$3" using $COL smooth sbezier with lines title "node", \\
+     "$4" using $COL smooth sbezier with lines title "ringo"
 EOF
 }
 
@@ -62,7 +62,7 @@ EOF
 function graph(){
   log graphing $1
 local dir=results/$1
-line $1 \
+line $1 "$2" \
 $dir/node.dat \
 $dir/ringo.dat \
 > results/$1.p
@@ -72,7 +72,7 @@ gnuplot results/$1.p
 # Make ./results/graphs
 mkdir -p results/graphs
 
-graph no-alloc
-graph buffer-alloc
-graph string-alloc
+graph no-alloc "no memory allocation"
+graph buffer-alloc "50k buffer allocation/request"
+graph string-alloc "50k string allocation/request"
 
