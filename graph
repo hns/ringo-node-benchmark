@@ -24,7 +24,7 @@ function line() {
 set terminal svg
 set output "results/graphs/$1.svg"
 set title "$1 $ABFLAGS"
-set size 1,0.7
+set size 0.95,0.75
 set grid y
 set key left top
 set xlabel "request"
