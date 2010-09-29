@@ -61,4 +61,5 @@ export RINGO_MODULE_PATH=`pwd`
 bm no-alloc
 bm buffer-alloc
 bm string-alloc
+bm parse-json
 

@@ -75,4 +75,5 @@ mkdir -p results/graphs
 graph no-alloc "no memory allocation"
 graph buffer-alloc "50k buffer allocation/request"
 graph string-alloc "50k string allocation/request"
+graph parse-json "~25k json parsing/request"
 
